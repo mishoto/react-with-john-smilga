@@ -1,5 +1,5 @@
 {
-  "name": "HooksBasics",
+  "name": "hooks-basics",
   "version": "1.0.0",
   "scripts": {
     "build": "webpack --mode production",
