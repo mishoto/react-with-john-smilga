@@ -1,14 +1,18 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import UseStateHook from './components/useState/UseState';
+import UseStateWithArray from './components/useState/UseStateWithArray';
+import UseStateWithObject from './components/useState/UseStateWithObject';
+import UseStateWithCounter from './components/useState/UseStateWithCounter';
 
-import "./index.css";
+import './index.css';
 
 const App = () => (
-  <div className="container">
-    <div>Name: HooksBasics</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
+  <div className='container'>
+    <UseStateHook />
+    <UseStateWithArray />
+    <UseStateWithObject />
+    <UseStateWithCounter />
   </div>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
