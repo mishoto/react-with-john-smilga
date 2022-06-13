@@ -1,12 +1,12 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Home from './pages/Home';
 
-import "./index.css";
+import './index.css';
 
 const App = () => (
-  
-    <h2>BirthdayReminder</h2>
-    
-  
+  <main>
+    <Home />
+  </main>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
