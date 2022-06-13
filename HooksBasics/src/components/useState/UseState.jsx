@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 
 const UseStateHook = () => {
-  const [text, setText] = useState('old Title');
+  const [text, setText] = useState('initial state');
 
   const toggleTitle = () => {
-    text === 'new Title' ? setText('old Title') : setText('new Title');
+    text === 'first State' ? setText('second State') : setText('first State');
   };
   return (
     <div>
-      <h1>{text}</h1>
+      <h3>{text}</h3>
       <button className='btn' onClick={toggleTitle}>
         change title
       </button>
