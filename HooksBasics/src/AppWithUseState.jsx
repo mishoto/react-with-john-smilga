@@ -7,7 +7,7 @@ import UseStateWithCounter from './components/useState/UseStateWithCounter';
 
 import './index.css';
 
-const App = () => (
+const AppWithUseState = () => (
   <div className='container'>
     <UseStateHook />
     <UseStateWithArray />
@@ -15,4 +15,7 @@ const App = () => (
     <UseStateWithCounter />
   </div>
 );
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <AppWithUseState />,
+  document.getElementById('appWithUseState'),
+);
