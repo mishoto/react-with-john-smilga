@@ -1,13 +1,19 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState, useEffect } from 'react';
+import Tour from './Tour';
 
-const url = 'https://course-api.com/react-tours-project';
-
-const Tours = () => {
-const [loading, setLoading] = useState(true);
-const [tours, setTours] = useState([]);
+const Tours = ({ tours }) => {
   return (
-    <h2>Tours</h2>
-  )
-}
+    <section>
+      <div className='title'>
+        <h3>Our Tours</h3>
+      </div>
+      <div>
+        {tours.map((tour) => {
+          return <Tour key={tour.id} {...tour}/>
+        })}
+      </div>
+    </section>
+  );
+};
 
-export default Tours
+export default Tours;
