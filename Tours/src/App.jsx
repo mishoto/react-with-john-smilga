@@ -1,13 +1,20 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Tours from './components/Tours';
+import Home from './pages/Home';
 
 import './index.css';
 
 const App = () => (
-  <div className='container'>
-    <h2>Tours Project</h2>
-    <Tours />
-  </div>
+  
+    <main>
+      <h2 className='title'>Tours Project</h2>
+      <Home />
+    </main>
+  
 );
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('app'),
+);
