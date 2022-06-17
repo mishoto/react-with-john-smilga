@@ -1,11 +1,14 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Home from './pages/Home';
 
-import "./index.css";
+import './index.css';
 
 const App = () => (
-  <div className="container">
+  <>
     
-  </div>
+
+    <Home />
+  </>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
