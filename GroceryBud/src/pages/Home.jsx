@@ -2,34 +2,78 @@ import React, { useState, useEffect } from 'react';
 import List from '../components/List';
 import Alert from '../components/Alert';
 
+const getLocalStorage = ()=> {
+  let list = localStorage.getItem('list');
+  if(list){
+    return JSON.parse(localStorage.getItem('list'))
+  }else{
+    return [];
+  }
+}
+
 const Home = () => {
   const [name, setName] = useState('');
-  const [list, setList] = useState([]);
+  const [list, setList] = useState(getLocalStorage());
   const [isEditing, setIsEditing] = useState(false);
   const [editID, setEditID] = useState(null);
-  const [alert, setAlert] = useState({ show: false, msg: '', type: '' });
+  const [alert, setAlert] = useState({
+    show: false,
+    type: '',
+    msg: '',
+  });
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (!name) {
-      //display alert
+      showAlert(true, 'danger', 'please enter a value');
     } else if (name && isEditing) {
-      //deal with edit
+      setList(
+        list.map((item) => {
+          if (item.id === editID) {
+            return { ...item, title: name };
+          }
+          return item;
+        }),
+      );
+      setName('');
+      setEditID(null);
+      setIsEditing(false);
+      showAlert(true, 'seccess', 'value changed');
     } else {
-      //show alert
+      showAlert(true, 'success', 'item added to the list');
       const newItem = {
         id: new Date().getTime().toString(), // external lib UUID!
         title: name,
       };
-      setList([...list], newItem);
+      setList([...list, newItem]);
       setName('');
     }
   };
 
+  const showAlert = (show = false, type = '', msg = '') => {
+    setAlert({ show, type, msg });
+  };
+
+  const removeItem = (id) => {
+    showAlert(true, 'success', 'item removed');
+    setList(list.filter((item) => item.id !== id));
+  };
+
+  const editItem = (id) => {
+    const editedItem = list.find((item) => item.id === id);
+    setIsEditing(true);
+    setEditID(id);
+    setName(editedItem.title);
+  };
+
+  useEffect(()=> {
+    localStorage.setItem('list', JSON.stringify(list))
+  },[list])
+
   return (
     <section className='section-center'>
       <form className='grocery-form' onSubmit={handleSubmit}>
-        {alert.show && <Alert />}
+        {alert.show && <Alert {...alert} removeAlert={showAlert} />}
         <h3>grocery bud</h3>
         <div className='form-control'>
           <input
@@ -44,10 +88,14 @@ const Home = () => {
           </button>
         </div>
       </form>
-      <div className='grosery-container'>
-        <List items={list}/>
-        <button className='clear-btn'>clear items</button>
-      </div>
+      {list.length > 0 && (
+        <div className='grocery-container'>
+          <List items={list} removeItem={removeItem} editItem={editItem} />
+          <button className='clear-btn' onClick={() => setList([])}>
+            clear items
+          </button>
+        </div>
+      )}
     </section>
   );
 };
