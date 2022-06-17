@@ -1,13 +1,12 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
 import ReactDOM from 'react-dom';
-import SingleQuestion from './components/Questions';
-import data from './data';
+import Home from './pages/Home'
 
 import './index.css';
 
 const App = () => (
-  <main className='container'>
-    <Questions />
+  <main>
+    <Home/>
   </main>
 );
 ReactDOM.render(
