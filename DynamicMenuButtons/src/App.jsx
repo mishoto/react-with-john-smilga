@@ -6,6 +6,7 @@ import './index.css';
 
 const App = () => (
   <main className='container'>
+    <h3 style={{textAlign: 'center'}}>menu project with dynamic buttons</h3>
     <Home />
   </main>
 );
