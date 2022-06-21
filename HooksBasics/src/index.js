@@ -2,4 +2,5 @@
 // import('./AppWithUseEffect');
 // import('./AppWithConditionalRendering');
 // import('./AppWithForms');
-import('./AppWithUseRefs');
+// import('./AppWithUseRefs');
+import('./AppWithUseReducer');
