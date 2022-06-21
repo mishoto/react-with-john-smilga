@@ -4,7 +4,7 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 module.exports = {
   mode: 'development',
   output: {
-    publicPath: 'http://localhost:3009/',
+    publicPath: 'http://localhost:3011/',
 
     path: path.resolve(__dirname, './dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
