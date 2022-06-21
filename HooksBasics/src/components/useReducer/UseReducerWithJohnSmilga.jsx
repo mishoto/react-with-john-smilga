@@ -25,10 +25,9 @@ const UseReducerWithJohnSmilga = () => {
     }
   };
   const closeModal = () => {
-    setTimeout(()=>{
-dispatch({ type: 'CLOSE_MODAL' });
-    },1000);
-    
+    setTimeout(() => {
+      dispatch({ type: 'CLOSE_MODAL' });
+    }, 1000);
   };
   return (
     <>
@@ -55,11 +54,10 @@ dispatch({ type: 'CLOSE_MODAL' });
             <h4>{person.name}</h4>
             <button
               className='btn'
-              onClick={() =>{
-                dispatch({ type: 'REMOVE_ITEM', payload: person.id })
+              onClick={() => {
+                dispatch({ type: 'REMOVE_ITEM', payload: person.id });
                 closeModal();
-              }
-              }>
+              }}>
               remove
             </button>
           </div>

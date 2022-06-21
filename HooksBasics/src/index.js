@@ -3,4 +3,5 @@
 // import('./AppWithConditionalRendering');
 // import('./AppWithForms');
 // import('./AppWithUseRefs');
-import('./AppWithUseReducer');
+// import('./AppWithUseReducer');
+import('./AppWithPropDrilling');
