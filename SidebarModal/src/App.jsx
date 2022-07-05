@@ -1,12 +1,19 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Home from './components/Home'
+import Modal from './components/Modal'
+import Sidebar from './components/Sidebar'
 
-import "./index.css";
+import './index.css';
 
 const App = () => (
-  <div className="container">
-    <h3>Name: SidebarModal</h3>
-    
-  </div>
+  <>
+  
+    <h3 style={{textAlign: 'center'}}>Sidebar Modal Example</h3>
+    <Home />
+    <Modal />
+    <Sidebar />
+  
+  </>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
