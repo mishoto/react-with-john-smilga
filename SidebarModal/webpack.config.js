@@ -6,7 +6,7 @@ module.exports = {
   output: {
     publicPath: 'http://localhost:3011/',
 
-    path: path.resolve(__dirname, './dist'),
+    // path: path.resolve(__dirname, './dist'),
     assetModuleFilename: 'images/[hash][ext][query]',
   },
 
@@ -17,10 +17,10 @@ module.exports = {
   },
 
   devServer: {
-    port: 3010,
-    static: {
-      directory: path.join(__dirname, './dist'),
-    },
+    port: 3011,
+    // static: {
+    //   directory: path.join(__dirname, './dist'),
+    // },
     hot: true,
   },
 
