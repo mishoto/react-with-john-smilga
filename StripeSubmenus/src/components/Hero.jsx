@@ -1,9 +1,24 @@
-import React from 'react'
+import React from 'react';
+import { useGlobalContext } from '../context';
+import phoneImg from '../images/phones.svg';
 
 const Hero = () => {
-  return (
-    <h4>Hero</h4>
-  )
-}
+  const { closeSubmenu } = useGlobalContext();
 
-export default Hero
+  return (
+    <section className='hero'>
+      <div className='hero-center'>
+        <article className='hero-info'>
+          <h1>Payment infra 4 the net</h1>
+          <p>Stripe power the payments</p>
+          <button className='btn'>start now</button>
+        </article>
+        <article className='hero-images'>
+          <img src={phoneImg} className='phone-img' alt='phone' />
+        </article>
+      </div>
+    </section>
+  );
+};
+
+export default Hero;
