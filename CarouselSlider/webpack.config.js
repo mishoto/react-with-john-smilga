@@ -1,40 +1,22 @@
-
-const path = require('path');
 const HtmlWebPackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  mode: 'development',
   output: {
     publicPath: 'http://localhost:3009/',
-
-    path: path.resolve(__dirname, './dist'),
-    assetModuleFilename: 'images/[hash][ext][query]',
   },
-
-  devtool: 'source-map',
-
-
-
-
 
   resolve: {
     extensions: ['.tsx', '.ts', '.jsx', '.js', '.json'],
   },
 
   devServer: {
-
-    port: 3010,
-    static: {
-      directory: path.join(__dirname, './dist'),
-    },
-    hot: true,
-
+    port: 3009,
+    historyApiFallback: true,
   },
 
   module: {
     rules: [
       {
-
         test: /\.m?js/,
         type: 'javascript/auto',
         resolve: {
@@ -52,7 +34,6 @@ module.exports = {
           loader: 'babel-loader',
         },
       },
-
       {
         test: /\.(png|jpg|jpeg|gif)$/i,
         use: [
@@ -67,7 +48,6 @@ module.exports = {
           },
         ],
       },
-
     ],
   },
 
