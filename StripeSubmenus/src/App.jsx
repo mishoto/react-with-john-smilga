@@ -10,7 +10,7 @@ import './index.css';
 
 const App = () => (
   <>
-    <h3 style={{ textAlign: 'center', margin: '2rem' }}>Stripe Submenus</h3>
+    
     <AppProvider>
       <Navbar />
       <Sidebar />
@@ -19,4 +19,9 @@ const App = () => (
     </AppProvider>
   </>
 );
-ReactDOM.render(<App />, document.getElementById('app'));
+ReactDOM.render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>,
+  document.getElementById('app'),
+);
