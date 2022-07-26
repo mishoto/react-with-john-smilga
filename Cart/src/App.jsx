@@ -1,14 +1,23 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import CartContainer from './components/CartContainer';
+import Navbar from './components/Navbar';
+import { AppProvider } from './context';
 
-import "./index.css";
+import './index.css';
 
 const App = () => (
-  <div className="container">
-    <div>Name: Cart</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
-  </div>
+  <main>
+    <Navbar />
+    <CartContainer />
+  </main>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(
+  <React.StrictMode>
+    <AppProvider>
+      <App />
+    </AppProvider>
+  </React.StrictMode>,
+
+  document.getElementById('app'),
+);
