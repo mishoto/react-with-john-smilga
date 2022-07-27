@@ -1,5 +1,3 @@
-import CartItem from './components/CartItem';
-
 const reducer = (state, action) => {
   if (action.type === 'CLEAR_CART') {
     return { ...state, cart: [] };
@@ -9,6 +7,51 @@ const reducer = (state, action) => {
       ...state,
       cart: state.cart.filter((cartItem) => cartItem.id !== action.payload),
     };
+  }
+  if (action.type === 'INCREASE_ITEM') {
+    let tempCart = state.cart.map((cartItem) => {
+      if (cartItem.id === action.payload) {
+        return { ...cartItem, amount: cartItem.amount + 1 };
+      }
+      return cartItem;
+    });
+
+    return {
+      ...state,
+      cart: tempCart,
+    };
+  }
+  if (action.type === 'DECREASE_ITEM') {
+    let tempCart = state.cart
+      .map((cartItem) => {
+        if (cartItem.id === action.payload) {
+          return { ...cartItem, amount: cartItem.amount - 1 };
+        }
+        return cartItem;
+      })
+      .filter((cartItem) => cartItem.amount !== 0);
+    return { ...state, cart: tempCart };
+  }
+  if (action.type === 'GET_TOTALS') {
+    let { amount, total } = state.cart.reduce(
+      (cartTotal, cartItem) => {
+
+        const { price, amount } = cartItem;
+        cartTotal.amount += amount;
+
+        const itemTotal = price * amount;
+        cartTotal.total += itemTotal;
+
+        return cartTotal;
+      },
+      {
+        total: 0,
+        amount: 0,
+      },
+    );
+    total = parseFloat(total.toFixed(2))
+
+    return { ...state, amount, total };
   }
   return state;
 };
