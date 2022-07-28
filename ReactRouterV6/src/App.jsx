@@ -1,14 +1,21 @@
-import React from "react";
-import ReactDOM from "react-dom";
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import Home from './pages/Home';
+import About from './pages/About';
+import Products from './pages/Products';
+import Error from './pages/Error';
 
-import "./index.css";
+import './index.css';
 
 const App = () => (
-  <div className="container">
-    <div>Name: ReactRouterV6</div>
-    <div>Framework: react</div>
-    <div>Language: JavaScript</div>
-    <div>CSS: Empty CSS</div>
-  </div>
+  <BrowserRouter>
+    <Routes>
+      <Route path='/' element={<Home />} />
+      <Route path='about' element={<About />} />
+      <Route path='products' element={<Products />} />
+      <Route path='*' element={<Error />} />
+    </Routes>
+  </BrowserRouter>
 );
-ReactDOM.render(<App />, document.getElementById("app"));
+ReactDOM.render(<App />, document.getElementById('app'));
