@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Dashboard = () => {
+const Dashboard = ({ user }) => {
   return (
     <section className='section'>
-      <h3>Dashboard</h3>
+      <h4>Hello from Dashboard, {user?.name}</h4>
     </section>
   );
 };
