@@ -17,10 +17,11 @@ module.exports = {
   },
 
   devServer: {
-    port: 3010,
+    port: 3014,
     static: {
       directory: path.join(__dirname, './dist'),
     },
+    historyApiFallback: true,
     hot: true,
   },
 
