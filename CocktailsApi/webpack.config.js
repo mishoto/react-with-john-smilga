@@ -18,6 +18,7 @@ module.exports = {
 
   devServer: {
     port: 3018,
+    historyApiFallback: true,
     static: {
       directory: path.join(__dirname, './dist'),
     },
@@ -46,18 +47,19 @@ module.exports = {
       },
 
       {
-        test: /\.(png|jpg|jpeg|gif)$/i,
-        use: [
-          'file-loader',
-          {
-            loader: 'url-loader',
-            options: {
-              limit: 8192,
-              mimetype: ['image/png', 'image/jpg', 'image/gif'],
-              encoding: true,
-            },
-          },
-        ],
+        test: /\.(png|jpg|jpeg|gif|svg)$/i,
+        type: 'asset/resource',
+        // use: [
+        //   'file-loader',
+        //   {
+        //     loader: 'url-loader',
+        //     options: {
+        //       limit: 8192,
+        //       mimetype: ['image/png', 'image/jpg', 'image/gif'],
+        //       encoding: true,
+        //     },
+        //   },
+        // ],
       },
     ],
   },
